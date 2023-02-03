@@ -11,23 +11,31 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/overlays.css" />
+    <link rel="stylesheet" href="./css/configuration.css" />
+    <link rel="stylesheet" href="./css/game.css" />
+    <script src="./js/config.js" defer></script>
+    <script src="./js/game.js" defer></script>
     <script src="./js/app.js" defer></script>
   </head>
   <body>
+    <div id="backdrop"></div>
     <header id="main-header">
       <h1>Play Tic, Tac, Toe</h1>
       <p>Built with HTML, CSS and JS - with heaps of love</p>
     </header>
     <main>
-      <aside>
+      <aside class="modal" id="config-overlay">
         <h2>Choose your name</h2>
         <form>
-          <div>
+          <div class="form-control">
             <label for="playername">Player name</label>
             <input type="text" name="playername" id="playername" />
           </div>
           <div>
-            <button type="button" class="btn btn-alt">Cancel</button>
+            <button type="button" class="btn btn-alt" id="cancel-config-btn">
+              Cancel
+            </button>
             <button type="submit" class="btn">Confirm</button>
           </div>
         </form>
@@ -39,16 +47,20 @@
             <article>
               <h2>Player 1</h2>
               <h3>PLAYER NAME</h3>
-              <p>X</p>
-              <button class="btn btn-alt">Edit</button>
+              <p class="player-symbol">X</p>
+              <button class="btn btn-alt" id="edit-player1-details">
+                Edit
+              </button>
             </article>
           </li>
           <li>
             <article>
               <h2>Player 2</h2>
               <h3>PLAYER NAME</h3>
-              <p>O</p>
-              <button class="btn btn-alt">Edit</button>
+              <p class="player-symbol">O</p>
+              <button class="btn btn-alt" id="edit-player2-details">
+                Edit
+              </button>
             </article>
           </li>
         </ol>
@@ -57,22 +69,22 @@
       <!-- Game config - ends -->
       <!-- game area - starts -->
       <section id="active-game">
-        <article>
-          <h3>You won, <span id="winner-name">PLAYER NAME</span></h3>
+        <article id="game-over">
+          <h2>You won, <span id="winner-name">PLAYER NAME</span></h2>
           <p>Click "Start New Game" above, to start a new game!</p>
         </article>
         <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p>
-        <ol>
-          <li></li>
-          <li></li>
-          <li></li>
-
-          <li></li>
+        <ol id="game-board">
+          <li class="disabled">x</li>
           <li></li>
           <li></li>
 
+          <li class="disabled">x</li>
+          <li class="disabled">o</li>
           <li></li>
-          <li></li>
+
+          <li class="disabled">o</li>
+          <li class="disabled">x</li>
           <li></li>
         </ol>
       </section>
