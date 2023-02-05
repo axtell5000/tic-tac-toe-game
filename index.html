@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/overlays.css" />
     <link rel="stylesheet" href="./css/configuration.css" />
     <link rel="stylesheet" href="./css/game.css" />
+    <!-- defer is very important -->
     <script src="./js/config.js" defer></script>
     <script src="./js/game.js" defer></script>
     <script src="./js/app.js" defer></script>
@@ -32,8 +33,9 @@
             <label for="playername">Player name</label>
             <input type="text" name="playername" id="playername" />
           </div>
+          <p id="config-errors"></p>
           <div>
-            <button type="button" class="btn btn-alt" id="cancel-config-btn">
+            <button type="reset" class="btn btn-alt" id="cancel-config-btn">
               Cancel
             </button>
             <button type="submit" class="btn">Confirm</button>
@@ -44,21 +46,29 @@
       <section id="game-configuration">
         <ol>
           <li>
-            <article>
+            <article id="player1-data">
               <h2>Player 1</h2>
               <h3>PLAYER NAME</h3>
               <p class="player-symbol">X</p>
-              <button class="btn btn-alt" id="edit-player1-details">
+              <button
+                class="btn btn-alt"
+                id="edit-player1-details"
+                data-playerid="1"
+              >
                 Edit
               </button>
             </article>
           </li>
           <li>
-            <article>
+            <article id="player2-data">
               <h2>Player 2</h2>
               <h3>PLAYER NAME</h3>
               <p class="player-symbol">O</p>
-              <button class="btn btn-alt" id="edit-player2-details">
+              <button
+                class="btn btn-alt"
+                id="edit-player2-details"
+                data-playerid="2"
+              >
                 Edit
               </button>
             </article>
